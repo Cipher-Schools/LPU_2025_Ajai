@@ -16,6 +16,7 @@ Node* createNode(int data) {
     newNode->prev = nullptr;
     newNode->next = nullptr;
     return newNode;
+    
 }
 
 // Insert at beginning
