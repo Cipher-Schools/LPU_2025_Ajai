@@ -1,39 +1,45 @@
-#include <iostream>
 #include <fstream>
+#include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 int main() {
-    ifstream file;
-    file.open("ages.txt");   // open the file
+    ofstream outfile;
+    outfile.open("ages.txt");
 
-    if (!file) {
-        return 0;            // file not found handling (optional)
-    }
+    int n;
+    cin >> n;
 
-    int N;
-    file >> N;
-
-    if (N > 20) {
+    if (n > 20) {
         cout << "Exceeding limit!";
-        file.close();        // close file
         return 0;
     }
-
-    float sum = 0;
-    for (int i = 0; i < N; i++) {
-        int age;
-        file >> age;
-        sum += age;
+    else{
+        for (int i = 0; i < n; i++) {
+            int age;
+            cin >> age;
+            outfile << age << " ";
+        }
     }
+    outfile.close();
 
-    file.close();            // close the file
+    ifstream infile;
+    infile.open("ages.txt");
 
-    float avg = sum / N;
-    cout << fixed << setprecision(1) << avg;
+    int age;
+    float sum = 0;
+    float average;
+    while (infile >> age) {
+        sum += age;
+        average = sum / n;
+    }  
+    cout << fixed << setprecision(1) << average << endl;   
 
+    infile.close();
     return 0;
 }
+
 
 
 // Problem Statement
