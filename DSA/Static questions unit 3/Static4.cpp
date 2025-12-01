@@ -1,3 +1,5 @@
+#include <iostream>
+using namespace std;
 
 void enqueue(int d) {
     Node* new_n = new Node;
@@ -12,16 +14,22 @@ void enqueue(int d) {
 }
 
 void printFrontRear() {
-    cout << "Front: " << front->data << ", ";
-    cout << "Rear: " << rear->data << endl;
-    
+    if (front != nullptr) {
+        cout << "Front: " << front->data << ", ";
+        cout << "Rear: " << rear->data << endl;
+    }
 }
 
 void dequeue() {
-    Node* temp;
-    temp = front;
+    if (front == nullptr) return; // Check if queue is empty
     
+    Node* temp = front;
     front = front->next;
-    delete temp;
     
+    // If queue becomes empty after removal, update rear to nullptr
+    if (front == nullptr) {
+        rear = nullptr;
+    }
+    
+    delete temp;
 }
