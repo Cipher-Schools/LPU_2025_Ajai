@@ -15,36 +15,38 @@ int addCustomer(int customerID) {
     if (isFull()) {
         return 0;
     } else {
-        rear++;
-        customerIDs[rear] = customerID;
         if (front == -1) {
             front = 0;
         }
+        rear++;
+        customerIDs[rear] = customerID;
         return 1;
     }
 }
 
-int processCustomer() {
+// Updated to match the Footer's expected format (takes a pointer)
+int processCustomer(int *id) {
     if (isEmpty()) {
-        return -1;
+        return 0; // Return 0 to indicate failure/empty
     } else {
-        int customerID = customerIDs[front];
+        *id = customerIDs[front]; // Store the ID in the pointer
         front++;
         if (front > rear) {
             initializeQueue();
         }
-        return customerID;
+        return 1; // Return 1 to indicate success
     }
 }
 
+// Updated to use printf instead of cout
 void displayQueue() {
     if (isEmpty()) {
-        cout << "Checkout queue is empty." << endl;
+        printf("Checkout queue is empty.\n");
     } else {
-        cout << "Customers waiting in the checkout queue: ";
+        printf("Customers waiting in the checkout queue: ");
         for (int i = front; i <= rear; i++) {
-            cout << customerIDs[i] << " ";
+            printf("%d ", customerIDs[i]);
         }
-        cout << endl;
+        printf("\n");
     }
 }
