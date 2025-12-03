@@ -1,3 +1,4 @@
+
 class Solution {
 public:
     int fib(int n) {
@@ -6,4 +7,4 @@ public:
 
         return fib(n-1) + fib(n-2);
     }
-}
+};
