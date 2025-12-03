@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-int reverse_string(string s ,int st,int end){
+string reverse_string(string &s ,int st,int end){
     int i=st;
     int j=end;
-    if(i>=j)return;
-    swap(s[st],s[end]);
-    return reverse_string(s,st+1,end-1);
+    if(i>=j)return "0" ;
+    swap(s[i],s[j]);
+    return reverse_string(s,i+1,j-1);
 }
 int main(int argc, char const *argv[])
 {
