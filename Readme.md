@@ -4,6 +4,8 @@
 
 *For CSE205 & CSE202 | 2nd Year B.Tech CSE | Lovely Professional University*
 
+resume template: [Link](https://www.overleaf.com/latex/templates/faangpath-simple-template/npsfpdqnxmbc)
+
 ---
 
 Welcome to your official coding practice space!
