@@ -6,7 +6,6 @@ using namespace std;
 // |   | 
 // C---D
 
-
 class Graph{
     int V; // number of vertices
     vector<vector<int>> adj; // adjacency list
@@ -15,16 +14,14 @@ class Graph{
         Graph(int V){
             this->V=V;
             adj.resize(V);
-        }
-        
+        }       
         
         void addEdge(int u , int v){
             adj[u].push_back(v);
             adj[v].push_back(u);
             
         }
-        
-        
+
         void printGraph(){
             for(int i=0;i<V;i++){
                 cout<<"vertex"<<i<<": ";
@@ -34,15 +31,11 @@ class Graph{
                 cout<<endl;
             }
         }
-        
-        
 };
     
     
 int main(){
     Graph g(5);   // 5 vertices (0 to 4)
-    
-    
     g.addEdge(0,1);
     g.addEdge(0,4);
     g.addEdge(1,2);
