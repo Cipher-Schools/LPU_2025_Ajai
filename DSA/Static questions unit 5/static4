@@ -1,0 +1,52 @@
+#include <stdio.h>
+
+int main() {
+    int n, table_size;
+    scanf("%d %d", &n, &table_size);
+
+    int table[100];
+    for (int i = 0; i < table_size; i++) {
+        table[i] = -1;
+    }
+
+    int arr[100];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+        int index = arr[i] % table_size;
+        while (table[index] != -1) {
+            index = (index + 1) % table_size;
+        }
+        table[index] = arr[i];
+    }
+
+    int q;
+    scanf("%d", &q);
+
+    int queries[20];
+    for (int i = 0; i < q; i++) {
+        scanf("%d", &queries[i]);
+    }
+
+    for (int i = 0; i < q; i++) {
+        int key = queries[i];
+        int index = key % table_size;
+        int found = 0;
+
+        int start = index;
+        while (table[index] != -1) {
+            if (table[index] == key) {
+                found = 1;
+                break;
+            }
+            index = (index + 1) % table_size;
+            if (index == start) break;
+        }
+
+        if (found)
+            printf("Value %d: Found\n", key);
+        else
+            printf("Value %d: Not Found\n", key);
+    }
+
+    return 0;
+}
