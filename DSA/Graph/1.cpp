@@ -51,3 +51,20 @@ int main(){
     return 0;
 }
      
+
+
+
+
+
+
+
+
+
+
+// time complexity      // space complexity
+
+// bfs      O(V+E)           O(V)
+// dfs      O(V+E)           O(V)
+// dijkstra O((V+E)log(V))   O(V)
+// bellmand O(V+E)           O(V)
+// floyd    O(V^3)           O(V)
